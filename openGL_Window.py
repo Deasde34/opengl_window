@@ -39,8 +39,8 @@ def dibujar_arbol():
 
     glBegin(GL_TRIANGLES)
     glColor3f(0.1, 0.6, 0.1)
-    glVertex3f(-0.2, -0.2, 0.0)
-    glVertex3f(-0.1, -0.2, 0.0)
+    glVertex3f(-0.3, -0.4, 0.0)
+    glVertex3f(0, -0.4, 0.0)
     glVertex3f(-0.15, -0.1, 0.0)
     glEnd()
 
@@ -115,6 +115,37 @@ def dibujar_circulos():
         glVertex3f((0.2 *math.cos(radianes)) + circulo_x, 0.1 *math.sin(radianes) +circulo_y, 2.0)
     glEnd()
     
+    glBegin(GL_TRIANGLE_FAN) 
+    glColor3f(0,0.37,0.05)
+    circulo_x= -0.6
+    circulo_y = 0.3
+    glVertex3f(0.0 +circulo_x, 0.0 +circulo_y, 0.0)
+    for grados in range (0, 250, 10):
+        radianes = grados * math.pi / 180.0
+        glVertex3f((0.2 *math.cos(radianes)) + circulo_x, 0.1 *math.sin(radianes) +circulo_y, 2.0)
+    glEnd()
+    #
+    glBegin(GL_TRIANGLE_FAN) 
+    glColor3f(0.89,0.92,0.24)
+    circulo_x= -0.601
+    circulo_y = 0.3
+    glVertex3f(0.0 +circulo_x, 0.0 +circulo_y, 0.0)
+    for grados in range (0, 250, 10):
+        radianes = grados * math.pi / 180.0
+        glVertex3f((0.2 *math.cos(radianes)) + circulo_x, 0.1 *math.sin(radianes) +circulo_y, 2.0)
+    glEnd()
+
+
+def dibujar_canasta():
+    glBegin(GL_TRIANGLE_STRIP)
+    glColor3f(0.58,0.40,0.23)
+    glVertex3f(0.28,-0.8,0.0)
+    glVertex3f(0.7,-0.8,0.0)
+    glVertex3f(0.4,-0.95,0.0)
+    glVertex3f(0.58,-0.95,0.0)
+    glEnd()
+
+
 def dibujar_suelo():
     glBegin(GL_QUADS)
     glColor3f(0.14,0.09,0.05)
@@ -172,7 +203,7 @@ def main():
         dibujar_montana()
         dibujar_arbol()
         dibujar_circulos()
-
+        dibujar_canasta()
         
 
         #Polling de inputs
