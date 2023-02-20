@@ -3,178 +3,140 @@ from OpenGL.GL import *
 import glfw
 import math
 
+
 def dibujar_cielo():
     glBegin(GL_QUADS)
-    glColor3f(0.0,0.7,5.0)
-    glVertex3f(-1.0,1.0,0.0)
-    glVertex3f(1.0,1.0,0.0)
-    glVertex3f(1.0,-0.5,0.0)
-    glVertex3f(-1.0,-0.5,0.0)
+    glColor3f(0.0, 0.7, 1.0)
+    glVertex3f(-1.0, 1.0, 0.0)
+    glVertex3f(1.0, 1.0, 0.0)
+    glColor3f(0.4, 0.7, 1.0)
+    glVertex3f(1.0, -1.0, 0.0)
+    glVertex3f(-1.0, -1.0, 0.0)
     glEnd()
 
-def dibujar_cesped():
-    glBegin(GL_QUADS)
-    glColor3f(0.13,0.69,0.29)
-    glVertex3f(-1.0,-0.2,0.0)
-    glVertex3f(1.0,-0.2,0.0)
-    glVertex3f(1.0,-1.0,0.0)
-    glVertex3f(-1.0,-1.0,0.0)
-    glEnd()
-
-def dibujar_casa():
-    glBegin(GL_QUADS)
-    glColor3f(0.72,0.47,0.34)
-    glVertex3f(-0.1,0.5,0.0)
-    glVertex3f(0.8,0.5,0.0)
-    glVertex3f(0.8,-0.8,0.0)
-    glVertex3f(-0.1,-0.8,0.0)
-    glEnd()
-
-def dibujar_techo():
+# Define a function to draw a mountain
+def dibujar_montana():
     glBegin(GL_TRIANGLES)
-    glColor3f(1.0,0.0,0.0)
-    glVertex3f(0.35,0.9,0.0)
-    glVertex3f(-0.35,0.35,0.0)
-    glVertex3f(1.06,0.35,0.0)
+    glColor3f(0.3, 0.3, 0.3)
+    glVertex3f(-0.5, -0.7, 0.0)
+    glVertex3f(-0.2, 0.3, 0.0)
+    glVertex3f(0.1, -0.7, 0.0)
+    glVertex3f(0.1, -0.2, 0.0)
+    glVertex3f(-0.2, -0.2, 0.0)
+    glVertex3f(-0.2, -0.7, 0.0)
+    glVertex3f(-0.5, -0.7, 0.0)
     glEnd()
 
-def dibujar_puerta():
+# Define a function to draw a tree
+def dibujar_arbol():
     glBegin(GL_QUADS)
-    glColor3f(1.0,0.5,0.0)
-    glVertex3f(0.1,-0.2,0.0)
-    glVertex3f(0.3,-0.2,0.0)
-    glVertex3f(0.3,-0.8,0.0)
-    glVertex3f(0.1,-0.8,0.0)
-    glEnd()
-    
-def dibujar_ventana():
-    glBegin(GL_QUADS)
-    glColor3f(0.5,0.1,0.0)
-    glVertex3f(0.4,0.2,0.0)
-    glVertex3f(0.7,0.2,0.0)
-    glVertex3f(0.7,-0.3,0.0)
-    glVertex3f(0.4,-0.3,0.0)
+    glColor3f(0.5, 0.3, 0.1)
+    glVertex3f(-0.2, -0.7, 0.0)
+    glVertex3f(-0.1, -0.7, 0.0)
+    glVertex3f(-0.1, -0.2, 0.0)
+    glVertex3f(-0.2, -0.2, 0.0)
     glEnd()
 
-def dibujar_ventana_palo1():
-    glBegin(GL_QUADS)
-    glColor3f(0.1,0.0,0.0)
-    glVertex3f(0.54,0.2,0.0)
-    glVertex3f(0.57,0.2,0.0)
-    glVertex3f(0.57,-0.3,0.0)
-    glVertex3f(0.54,-0.3,0.0)
+    glBegin(GL_TRIANGLES)
+    glColor3f(0.1, 0.6, 0.1)
+    glVertex3f(-0.2, -0.2, 0.0)
+    glVertex3f(-0.1, -0.2, 0.0)
+    glVertex3f(-0.15, -0.1, 0.0)
     glEnd()
 
-def dibujar_ventana_palo2():
-    glBegin(GL_QUADS)
-    glColor3f(0.1,0.0,0.0)
-    glVertex3f(0.4,-0.00,0.0)
-    glVertex3f(0.7,-0.00,0.0)
-    glVertex3f(0.7,-0.05,0.0)
-    glVertex3f(0.4,-0.05,0.0)
-    glEnd()
-
-def dibujar_tronco():
-    glBegin(GL_QUADS)
-    glColor3f(0.72,0.47,0.34)
-    glVertex3f(-0.8,0.1,0.0)
-    glVertex3f(-0.6,0.1,0.0)
-    glVertex3f(-0.6,-0.9,0.0)
-    glVertex3f(-0.8,-0.9,0.0)
-    glEnd()
-
-def dibujar_sol():
+def dibujar_circulos():
     glBegin(GL_TRIANGLE_FAN) 
-    glColor3f(1.0, 0.8,0.0)
-    circulo_x= -0.8
-    circulo_y = 0.7
+    glColor3f(0.23,0.05,0.32)
+    circulo_x= 0.4
+    circulo_y = 0.3
     glVertex3f(0.0 +circulo_x, 0.0 +circulo_y, 0.0)
     for grados in range (0, 361, 10):
         radianes = grados * math.pi / 180.0
-        glVertex3f((0.18 *math.cos(radianes)) + circulo_x, 0.3 * math.sin(radianes) +circulo_y, 0.0)
+        glVertex3f((0.1 *math.cos(radianes)) + circulo_x, 0.1 *math.sin(radianes) +circulo_y, 2.0)
     glEnd()
-
-def dibujar_arbol1():
+    #manzana
     glBegin(GL_TRIANGLE_FAN) 
-    glColor3f(0.0, 1.0,0.0)
-    circulo_x= -0.8
-    circulo_y = 0.15
-    glVertex3f(0.0 +circulo_x, 0.0 +circulo_y, 0.0)
-    for grados in range (0, 361, 10):
-        radianes = grados * math.pi / 180.0
-        glVertex3f((0.15 *math.cos(radianes)) + circulo_x, 0.2 * math.sin(radianes) +circulo_y, 0.0)
-    glEnd()
-
-def dibujar_arbol2():
-    glBegin(GL_TRIANGLE_FAN) 
-    glColor3f(0.0, 1.0,0.0)
-    circulo_x= -0.67
-    circulo_y = 0.25
-    glVertex3f(0.0 +circulo_x, 0.0 +circulo_y, 0.0)
-    for grados in range (0, 361, 10):
-        radianes = grados * math.pi / 180.0
-        glVertex3f((0.15 *math.cos(radianes)) + circulo_x, 0.2 * math.sin(radianes) +circulo_y, 0.0)
-    glEnd()
-
-def dibujar_arbol3():
-    glBegin(GL_TRIANGLE_FAN) 
-    glColor3f(0.0, 1.0,0.0)
-    circulo_x= -0.55
+    glColor3f(0.56,0.08,0.06)
+    circulo_x= -0.4
     circulo_y = 0.1
     glVertex3f(0.0 +circulo_x, 0.0 +circulo_y, 0.0)
     for grados in range (0, 361, 10):
         radianes = grados * math.pi / 180.0
-        glVertex3f((0.15 *math.cos(radianes)) + circulo_x, 0.2 * math.sin(radianes) +circulo_y, 0.0)
+        glVertex3f((0.1 *math.cos(radianes)) + circulo_x, 0.1 *math.sin(radianes) +circulo_y, 2.0)
     glEnd()
-
-def dibujar_nube1():
+    #manzana verde
     glBegin(GL_TRIANGLE_FAN) 
-    glColor3f(1.0, 1.0,1.0)
-    circulo_x= -0.3
-    circulo_y = 0.7
-    glVertex3f(0.0 +circulo_x, 0.0 +circulo_y, 0.0)
-    for grados in range (0, 361, 10):
-        radianes = grados * math.pi / 180.0
-        glVertex3f((0.18 *math.cos(radianes)) + circulo_x, 0.15* math.sin(radianes) +circulo_y, 0.0)
-    glEnd()
-
-def dibujar_nube2():
-    glBegin(GL_TRIANGLE_FAN) 
-    glColor3f(1.0, 1.0,1.0)
+    glColor3f(0.24,0.70,0.06)
     circulo_x= -0.2
-    circulo_y = 0.7
+    circulo_y = 0.6
     glVertex3f(0.0 +circulo_x, 0.0 +circulo_y, 0.0)
     for grados in range (0, 361, 10):
         radianes = grados * math.pi / 180.0
-        glVertex3f((0.2 *math.cos(radianes)) + circulo_x, 0.15* math.sin(radianes) +circulo_y, 0.0)
+        glVertex3f((0.1 *math.cos(radianes)) + circulo_x, 0.1 *math.sin(radianes) +circulo_y, 2.0)
+    glEnd()
+    #SOL
+    glBegin(GL_TRIANGLE_FAN) 
+    glColor3f(0.89,0.92,0.24)
+    circulo_x= -1
+    circulo_y = 1
+    glVertex3f(0.0 +circulo_x, 0.0 +circulo_y, 0.0)
+    for grados in range (0, 361, 10):
+        radianes = grados * math.pi / 180.0
+        glVertex3f((1 *math.cos(radianes)) + circulo_x, 1 *math.sin(radianes) +circulo_y, 2.0)
+    glEnd()
+    #canasta
+    glBegin(GL_TRIANGLE_FAN) 
+    glColor3f(0.58,0.40,0.23)
+    circulo_x= 0.5
+    circulo_y = -0.8
+    glVertex3f(0.0 +circulo_x, 0.0 +circulo_y, 0.0)
+    for grados in range (0, 361, 10):
+        radianes = grados * math.pi / 180.0
+        glVertex3f((0.4 *math.cos(radianes)) + circulo_x, 0.1 *math.sin(radianes) +circulo_y, 2.0)
+    glEnd()
+    #naranja
+    glBegin(GL_TRIANGLE_FAN) 
+    glColor3f(0.98,0.45,0.09)
+    circulo_x= -0.5
+    circulo_y = 0.8
+    glVertex3f(0.0 +circulo_x, 0.0 +circulo_y, 0.0)
+    for grados in range (0, 361, 10):
+        radianes = grados * math.pi / 180.0
+        glVertex3f((0.12 *math.cos(radianes)) + circulo_x, 0.12 *math.sin(radianes) +circulo_y, 2.0)
+    glEnd()
+    #sandia
+    glBegin(GL_TRIANGLE_FAN) 
+    glColor3f(0,0.37,0.05)
+    circulo_x= -0.5
+    circulo_y = 0.3
+    glVertex3f(0.0 +circulo_x, 0.0 +circulo_y, 0.0)
+    for grados in range (0, 361, 10):
+        radianes = grados * math.pi / 180.0
+        glVertex3f((0.2 *math.cos(radianes)) + circulo_x, 0.1 *math.sin(radianes) +circulo_y, 2.0)
+    glEnd()
+    
+def dibujar_suelo():
+    glBegin(GL_QUADS)
+    glColor3f(0.14,0.09,0.05)
+    glVertex3f(-1.0,-0.7,0.0)
+    glVertex3f(1.0,-0.7,0.0)
+    glVertex3f(1.0,-1.0,0.0)
+    glVertex3f(-1.0,-1.0,0.0)
+    glEnd()
+def dibujar_suelo2():
+    glBegin(GL_QUADS)
+    glColor3f(0.27,0.16,0.09)
+    glVertex3f(-1.0,-0.9,0.0)
+    glVertex3f(1.0,-0.9,0.0)
+    glVertex3f(1.0,-1.0,0.0)
+    glVertex3f(-1.0,-1.0,0.0)
     glEnd()
 
-def dibujar_nube3():
-    glBegin(GL_TRIANGLE_FAN) 
-    glColor3f(1.0, 1.0,1.0)
-    circulo_x= -0.25
-    circulo_y = 0.85
-    glVertex3f(0.0 +circulo_x, 0.0 +circulo_y, 0.0)
-    for grados in range (0, 361, 10):
-        radianes = grados * math.pi / 180.0
-        glVertex3f((0.1 *math.cos(radianes)) + circulo_x, 0.1* math.sin(radianes) +circulo_y, 0.0)
-    glEnd()
-
-def dibujar_perilla():
-    glBegin(GL_TRIANGLE_FAN) 
-    glColor3f(0.1,0.0,0.0)
-    circulo_x= 0.13
-    circulo_y = -0.5
-    glVertex3f(0.0 +circulo_x, 0.0 +circulo_y, 0.0)
-    for grados in range (0, 361, 10):
-        radianes = grados * math.pi / 180.0
-        glVertex3f((0.02 *math.cos(radianes)) + circulo_x, 0.04* math.sin(radianes) +circulo_y, 0.0)
-    glEnd()
 
 def main():
     #Establcer valores de ventana
-    width = 800
-    height = 400
+    width = 472
+    height = 378
     #Inicializar GLFW
     if not glfw.init():
         return
@@ -205,22 +167,14 @@ def main():
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         #Dibujar
         dibujar_cielo()
-        dibujar_cesped()
-        dibujar_casa()
-        dibujar_techo()
-        dibujar_puerta()
-        dibujar_ventana()
-        dibujar_ventana_palo1()
-        dibujar_ventana_palo2()
-        dibujar_tronco()
-        dibujar_sol()
-        dibujar_arbol1()
-        dibujar_arbol2()
-        dibujar_arbol3()
-        dibujar_nube1()
-        dibujar_nube2()
-        dibujar_nube3()
-        dibujar_perilla()
+        dibujar_suelo()
+        dibujar_suelo2()
+        dibujar_montana()
+        dibujar_arbol()
+        dibujar_circulos()
+
+        
+
         #Polling de inputs
         glfw.poll_events()
         #Cambiar los buffer
